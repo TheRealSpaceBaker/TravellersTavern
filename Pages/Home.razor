@@ -1,0 +1,27 @@
+﻿@page "/"
+@inject TravellersTavern.ViewModels.HomeViewModel Vm
+
+<h1>@Vm.Title</h1>
+<p>@Vm.IntroText</p>
+
+@if (!string.IsNullOrWhiteSpace(Vm.ErrorMessage))
+{
+    <div class="alert">@Vm.ErrorMessage</div>
+}
+
+<div class="card-grid">
+    @foreach (var card in Vm.ChoiceCards)
+    {
+        <button class="card" @onclick="() => Vm.NavigateToCommand.Execute(card.Href)">
+            <h3>@card.Title</h3>
+            <p>@card.Text</p>
+        </button>
+    }
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Vm.Load();
+    }
+}

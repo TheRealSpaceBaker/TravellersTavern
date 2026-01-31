@@ -1,0 +1,35 @@
+﻿@inject TravellersTavern.Services.IContentService Content
+
+<div class="nav-wrap">
+    <a class="brand" href="/">@Content.OrganizationName</a>
+
+    <nav class="nav">
+        <ul class="nav-list">
+            @foreach (var item in Content.Navigation.Primary)
+            {
+                if (item.Children is { Count: > 0 })
+                {
+                    <li class="nav-item">
+                        <details class="dropdown">
+                            <summary class="nav-link">@item.Title</summary>
+                            <ul class="dropdown-menu">
+                                @foreach (var child in item.Children)
+                                {
+                                    <li>
+                                        <a class="dropdown-link" href="@child.Href">@child.Title</a>
+                                    </li>
+                                }
+                            </ul>
+                        </details>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@item.Href">@item.Title</a>
+                    </li>
+                }
+            }
+        </ul>
+    </nav>
+</div>

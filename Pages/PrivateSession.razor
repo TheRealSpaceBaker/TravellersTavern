@@ -1,0 +1,51 @@
+﻿@page "/private-session"
+@inject TravellersTavern.ViewModels.PrivateSessionViewModel Vm
+
+<h1>@Vm.Title</h1>
+<p>@Vm.IntroText</p>
+
+@if (!string.IsNullOrWhiteSpace(Vm.ErrorMessage))
+{
+    <div class="alert">@Vm.ErrorMessage</div>
+}
+
+@if (Vm.Submitted && !string.IsNullOrWhiteSpace(Vm.SuccessMessage))
+{
+    <div class="success">@Vm.SuccessMessage</div>
+}
+
+<EditForm Model="@Vm.Form" OnValidSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-row">
+        <label>Naam</label>
+        <InputText class="input" @bind-Value="Vm.Form.Name" />
+    </div>
+
+    <div class="form-row">
+        <label>E-mail</label>
+        <InputText class="input" @bind-Value="Vm.Form.Email" />
+    </div>
+
+    <div class="form-row">
+        <label>Bericht</label>
+        <InputTextArea class="input" @bind-Value="Vm.Form.Message" rows="6" />
+    </div>
+
+    <button class="btn" type="submit" disabled="@Vm.IsBusy">
+        @(Vm.IsBusy ? "Versturen..." : "Versturen")
+    </button>
+</EditForm>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Vm.Load();
+    }
+
+    private Task OnSubmit()
+    {
+        return Vm.SubmitCommand.ExecuteAsync(null);
+    }
+}

@@ -1,0 +1,476 @@
+﻿/* =========================================
+   Base and theme
+   Dark theme with accent #825526
+   ========================================= */
+
+:root {
+    --bg: #0f0f12;
+    --surface: #16161b;
+    --surface-2: #1d1d24;
+    --text: #f2f2f4;
+    --muted: #b9bbc6;
+    --border: #2b2b35;
+
+    --accent: #825526;
+    --accent-2: #a06a32;
+
+    --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    --radius: 14px;
+
+    --maxw: 1100px;
+}
+
+/* Make the page fill viewport so footer can stick to bottom */
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Basic links */
+a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--text);
+}
+
+/* =========================================
+   Layout: sticky footer
+   ========================================= */
+
+.site {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Let main expand so footer is pushed down */
+.site-content {
+    flex: 1;
+    padding: 26px 24px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+}
+
+/* Safety: prevent dropdown getting clipped */
+.site-header,
+.nav-wrap,
+.nav,
+.nav-list,
+.nav-item {
+    overflow: visible;
+}
+
+/* Header layering: ensure dropdown can be clicked */
+.site-header {
+    position: relative;
+    z-index: 10000;
+    background: rgba(15,15,18,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+.site-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+}
+
+/* =========================================
+   Header and navigation
+   ========================================= */
+
+.nav-wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 14px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.brand {
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.nav {
+    display: block;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+/* Clickable cursor for nav items */
+.nav-link,
+.nav-list a {
+    cursor: pointer;
+}
+
+/* Nav links */
+.nav-link,
+.nav-list a.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 10px;
+    border-radius: 10px;
+
+    color: var(--muted);
+    transition: background 120ms ease, color 120ms ease;
+}
+
+.nav-link:hover,
+.nav-list a.nav-link:hover {
+    background: rgba(130,85,38,0.16);
+    color: var(--text);
+}
+
+/* =========================================
+   Dropdown (details/summary based)
+   Requires NavMenu uses <details class="dropdown"><summary>...</summary>...
+   ========================================= */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown > summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+}
+
+/* Remove default marker for WebKit */
+.dropdown > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Add a subtle caret */
+.dropdown > summary::after {
+    content: "▾";
+    font-size: 0.9em;
+    color: var(--muted);
+    margin-left: 6px;
+}
+
+/* Make summary look like other nav links */
+.dropdown > summary.nav-link,
+.dropdown > summary {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 10px 10px;
+    border-radius: 10px;
+
+    color: var(--muted);
+    transition: background 120ms ease, color 120ms ease;
+}
+
+.dropdown > summary:hover {
+    background: rgba(130,85,38,0.16);
+    color: var(--text);
+}
+
+.dropdown[open] > summary {
+    background: rgba(130,85,38,0.22);
+    color: var(--text);
+}
+
+/* Menu box */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+
+    min-width: 190px;
+
+    margin: 0;
+    padding: 8px;
+    list-style: none;
+
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+
+    z-index: 99999;
+}
+
+/* Show menu when open */
+.dropdown[open] .dropdown-menu {
+    display: block;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 10px 10px;
+    border-radius: 10px;
+
+    color: var(--text);
+    cursor: pointer;
+
+    transition: background 120ms ease;
+}
+
+.dropdown-link:hover {
+    background: rgba(130,85,38,0.18);
+}
+
+/* =========================================
+   Typography
+   ========================================= */
+
+h1 {
+    font-size: 2rem;
+    margin: 8px 0 10px 0;
+}
+
+h3 {
+    margin: 0 0 8px 0;
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+/* =========================================
+   Cards on home page
+   ========================================= */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+
+    text-align: left;
+    cursor: pointer;
+
+    transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(130,85,38,0.55);
+    background: #14141a;
+}
+
+.card h3 {
+    color: var(--text);
+}
+
+.card p {
+    margin: 0;
+}
+
+/* If cards are buttons, keep them looking like cards */
+button.card {
+    width: 100%;
+    border: 1px solid var(--border);
+    color: inherit;
+}
+
+/* =========================================
+   Blocks / info sections
+   ========================================= */
+
+.block-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.info-block {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+.info-row {
+    margin-top: 6px;
+    color: var(--muted);
+}
+
+.info-row strong {
+    color: var(--text);
+}
+
+/* Note box (calendar placeholder) */
+.note {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border: 1px dashed rgba(130,85,38,0.6);
+    border-radius: 12px;
+    background: rgba(130,85,38,0.12);
+    color: var(--muted);
+}
+
+/* =========================================
+   Forms
+   ========================================= */
+
+.form-row {
+    display: grid;
+    gap: 6px;
+    margin: 12px 0;
+}
+
+label {
+    color: var(--muted);
+}
+
+.input {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #111116;
+    color: var(--text);
+    outline: none;
+}
+
+.input:focus {
+    border-color: rgba(130,85,38,0.8);
+    box-shadow: 0 0 0 3px rgba(130,85,38,0.18);
+}
+
+.btn {
+    padding: 10px 14px;
+    border: 1px solid rgba(130,85,38,0.65);
+    border-radius: 12px;
+    background: rgba(130,85,38,0.22);
+    color: var(--text);
+    cursor: pointer;
+
+    transition: background 120ms ease, transform 120ms ease;
+}
+
+.btn:hover {
+    background: rgba(130,85,38,0.32);
+    transform: translateY(-1px);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Alerts */
+.alert {
+    margin: 12px 0;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 120, 120, 0.35);
+    border-radius: 12px;
+    background: rgba(255, 120, 120, 0.08);
+    color: var(--text);
+}
+
+.success {
+    margin: 12px 0;
+    padding: 12px 14px;
+    border: 1px solid rgba(120, 255, 170, 0.25);
+    border-radius: 12px;
+    background: rgba(120, 255, 170, 0.06);
+    color: var(--text);
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+
+.site-footer {
+    padding: 18px 24px;
+}
+
+.footer-grid {
+    max-width: var(--maxw);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.footer-grid h4 {
+    margin: 0 0 10px 0;
+    color: var(--text);
+}
+
+.footer-grid div,
+.footer-grid li {
+    color: var(--muted);
+}
+
+.footer-socials {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-socials a {
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.footer-socials a:hover {
+    color: var(--text);
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+    }
+}

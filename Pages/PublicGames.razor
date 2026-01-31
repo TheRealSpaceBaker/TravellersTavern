@@ -1,0 +1,27 @@
+﻿@page "/public-games"
+@inject TravellersTavern.ViewModels.PublicGamesViewModel Vm
+
+<h1>@Vm.Title</h1>
+<p>@Vm.IntroText</p>
+
+<div class="block-list">
+    @foreach (var loc in Vm.Locations)
+    {
+        <article class="info-block">
+            <div class="info-block-header">
+                <h3>@loc.Name</h3>
+            </div>
+
+            <div class="info-row"><strong>Dagen en tijden:</strong> @loc.DaysTimes</div>
+            <div class="info-row"><strong>Locatie:</strong> @loc.Address</div>
+            <p>@loc.Description</p>
+        </article>
+    }
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Vm.Load();
+    }
+}

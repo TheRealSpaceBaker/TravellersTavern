@@ -1,0 +1,26 @@
+﻿@inject TravellersTavern.Services.IContentService Content
+
+<div class="footer-grid">
+    <section>
+        <h4>Algemene info</h4>
+        <div>@Content.OrganizationName</div>
+        <div>KVK: @Content.Footer.KvkNumber</div>
+    </section>
+
+    <section>
+        <h4>Contact</h4>
+        <div>Tel: @Content.Footer.Phone</div>
+        <div>E-mail: <a href="mailto:@Content.Footer.Email">@Content.Footer.Email</a></div>
+        <div>Adres: @Content.Footer.Address</div>
+    </section>
+
+    <section>
+        <h4>Socials</h4>
+        <ul class="footer-socials">
+            @foreach (var s in Content.Footer.Socials)
+            {
+                <li><a href="@s.Url" target="_blank" rel="noopener noreferrer">@s.Name</a></li>
+            }
+        </ul>
+    </section>
+</div>

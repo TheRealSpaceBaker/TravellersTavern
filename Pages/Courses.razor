@@ -1,0 +1,26 @@
+﻿@page "/courses"
+@inject TravellersTavern.ViewModels.CoursesViewModel Vm
+
+<h1>@Vm.Title</h1>
+<p>@Vm.IntroText</p>
+
+<div class="block-list">
+    @foreach (var opt in Vm.Options)
+    {
+        <article class="info-block">
+            <h3>@opt.Title</h3>
+            <p>@opt.Description</p>
+        </article>
+    }
+</div>
+
+<div class="note">
+    <strong>Agenda:</strong> @Vm.CalendarNote
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Vm.Load();
+    }
+}

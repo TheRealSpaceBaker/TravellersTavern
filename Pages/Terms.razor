@@ -1,0 +1,13 @@
+﻿@page "/terms"
+@inject TravellersTavern.Services.IContentService Content
+@inject TravellersTavern.ViewModels.SimpleTextPageViewModel Vm
+
+<h1>@Vm.Title</h1>
+<p>@Vm.Text</p>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Vm.Set(Content.Terms.Title, Content.Terms.Text);
+    }
+}
