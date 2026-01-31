@@ -53,21 +53,25 @@
     "home": {
       "title": "Introductie",
       "introText": "Placeholder introductietekst voor The Traveller's Tavern.",
+      "heroImageUrl": "/img/placeholders/Placeholder-Home.png",
       "choiceCards": [
         {
           "title": "Speel mee!",
           "text": "Ga naar de Public games pagina.",
-          "href": "/public-games"
+          "href": "/public-games",
+          "imageUrl": "/img/placeholders/Placeholder-Card1.png"
         },
         {
           "title": "Leer (spellen-)leider worden!",
           "text": "Bekijk de cursusopties.",
-          "href": "/courses"
+          "href": "/courses",
+          "imageUrl": "/img/placeholders/Placeholder-Card2.png"
         },
         {
           "title": "Boek een persoonlijke les of sessie!",
           "text": "Neem contact op voor een private session.",
-          "href": "/private-session"
+          "href": "/private-session",
+          "imageUrl": "/img/placeholders/Placeholder-Card3.png"
         }
       ]
     },

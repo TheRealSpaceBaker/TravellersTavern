@@ -474,3 +474,88 @@ label {
         flex-wrap: wrap;
     }
 }
+/* Home hero background (uses image, overlay uses allowed palette color) */
+.home-hero {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 34px 0;
+}
+
+/* Inner block with readable background */
+.home-hero-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 26px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+/* Card with optional image */
+.card--media {
+    padding: 0;
+    overflow: hidden;
+    display: block;
+}
+
+.card-media {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid var(--border);
+}
+
+.card-body {
+    padding: 16px;
+}
+/* Home layout: photo block above intro block */
+.home-wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    gap: 18px;
+}
+
+/* Photo block */
+.home-photo {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.home-photo-img {
+    width: 100%;
+    height: 240px; /* pas aan als je hoger wilt */
+    object-fit: cover;
+    display: block;
+}
+
+/* Intro block */
+.home-intro {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 22px;
+}
+
+/* Card media layout (als je die nog niet had) */
+.card--media {
+    padding: 0;
+    overflow: hidden;
+    display: block;
+}
+
+.card-media {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid var(--border);
+}
+
+.card-body {
+    padding: 16px;
+}

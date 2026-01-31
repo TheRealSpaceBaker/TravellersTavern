@@ -1,22 +1,36 @@
 ﻿@page "/"
 @inject TravellersTavern.ViewModels.HomeViewModel Vm
 
-<h1>@Vm.Title</h1>
-<p>@Vm.IntroText</p>
+<div class="home-wrap">
 
-@if (!string.IsNullOrWhiteSpace(Vm.ErrorMessage))
-{
-    <div class="alert">@Vm.ErrorMessage</div>
-}
-
-<div class="card-grid">
-    @foreach (var card in Vm.ChoiceCards)
+    @if (!string.IsNullOrWhiteSpace(Vm.HeroImageUrl))
     {
-        <button class="card" @onclick="() => Vm.NavigateToCommand.Execute(card.Href)">
-            <h3>@card.Title</h3>
-            <p>@card.Text</p>
-        </button>
+        <section class="home-photo">
+            <img class="home-photo-img" src="@Vm.HeroImageUrl" alt="Home foto" />
+        </section>
     }
+
+    <section class="home-intro">
+        <h1>@Vm.Title</h1>
+        <p>@Vm.IntroText</p>
+
+        <div class="card-grid">
+            @foreach (var card in Vm.ChoiceCards)
+            {
+                <a class="card card--media" href="@card.Href">
+                    @if (!string.IsNullOrWhiteSpace(card.ImageUrl))
+                    {
+                        <div class="card-media" style="background-image: url('@card.ImageUrl')"></div>
+                    }
+                    <div class="card-body">
+                        <h3>@card.Title</h3>
+                        <p>@card.Text</p>
+                    </div>
+                </a>
+            }
+        </div>
+    </section>
+
 </div>
 
 @code {
