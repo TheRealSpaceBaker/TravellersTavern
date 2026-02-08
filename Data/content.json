@@ -65,36 +65,39 @@
           "title": "Leer (spellen-)leider worden!",
           "text": "Bekijk de cursusopties.",
           "href": "/courses",
-          "imageUrl": "/img/placeholders/Placeholder-Card2.png"
+          "imageUrl": "/img/placeholders/Placeholder-Card1.png"
         },
         {
           "title": "Boek een persoonlijke les of sessie!",
           "text": "Neem contact op voor een private session.",
           "href": "/private-session",
-          "imageUrl": "/img/placeholders/Placeholder-Card3.png"
+          "imageUrl": "/img/placeholders/Placeholder-Card1.png"
         }
       ]
     },
     "publicGames": {
       "title": "Speel mee!",
       "introText": "Hier vind je info over publieke spellen, locaties en tijden.",
+      "heroImageUrl": "/img/placeholders/Placeholder-PublicGames.png",
       "locations": [
         {
           "name": "Locatie A",
           "daysTimes": "Vrijdag 19:00 tot 23:00",
           "address": "Adres locatie A",
           "description": "Beschrijving van locatie A.",
-          "imageUrl": "/img/placeholders/location.jpg"
+          "imageUrl": "/img/placeholders/Placeholder-PublicGames-Block1.png"
         },
         {
           "name": "Locatie B",
           "daysTimes": "Zaterdag 13:00 tot 17:00",
           "address": "Adres locatie B",
           "description": "Beschrijving van locatie B.",
-          "imageUrl": "/img/placeholders/location.jpg"
+          "imageUrl": "/img/placeholders/Placeholder-PublicGames-Block2.png"
         }
       ]
     },
+
+
     "courses": {
       "title": "Leer (spellen-)leider worden!",
       "introText": "Hier vind je informatie over lessen en cursusopties.",

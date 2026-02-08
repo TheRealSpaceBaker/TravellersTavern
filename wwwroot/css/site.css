@@ -559,3 +559,69 @@ label {
 .card-body {
     padding: 16px;
 }
+
+/* Public pages layout container */
+.page-wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    gap: 18px;
+}
+
+/* Hero image block */
+.page-hero {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.page-hero-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Card-like container for title + blocks */
+.page-card {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 22px;
+}
+
+/* Block media layout */
+.info-block--media {
+    padding: 0;
+    overflow: hidden;
+}
+
+.block-media {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid var(--border);
+}
+
+.block-body {
+    padding: 16px;
+}
+/* PublicGames blocks with image on top */
+.info-block--media {
+    padding: 0; /* omdat we een image header hebben */
+    overflow: hidden;
+}
+
+.block-media {
+    height: 110px; /* pas aan naar smaak */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid var(--border);
+}
+
+.block-body {
+    padding: 16px;
+}

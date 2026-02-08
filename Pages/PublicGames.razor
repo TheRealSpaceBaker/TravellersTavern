@@ -1,22 +1,41 @@
 ﻿@page "/public-games"
 @inject TravellersTavern.ViewModels.PublicGamesViewModel Vm
 
-<h1>@Vm.Title</h1>
-<p>@Vm.IntroText</p>
+<div class="page-wrap">
 
-<div class="block-list">
-    @foreach (var loc in Vm.Locations)
+    @if (!string.IsNullOrWhiteSpace(Vm.HeroImageUrl))
     {
-        <article class="info-block">
-            <div class="info-block-header">
-                <h3>@loc.Name</h3>
-            </div>
-
-            <div class="info-row"><strong>Dagen en tijden:</strong> @loc.DaysTimes</div>
-            <div class="info-row"><strong>Locatie:</strong> @loc.Address</div>
-            <p>@loc.Description</p>
-        </article>
+        <section class="home-photo">
+            <img class="home-photo-img" src="@Vm.HeroImageUrl" alt="Public games" />
+        </section>
     }
+
+
+    <section class="page-card">
+        <h1>@Vm.Title</h1>
+        <p>@Vm.IntroText</p>
+
+        <div class="block-list">
+            @foreach (var loc in Vm.Locations)
+            {
+                <article class="info-block info-block--media">
+                    @if (!string.IsNullOrWhiteSpace(loc.ImageUrl))
+                    {
+                        <div class="block-media" style="background-image: url('@loc.ImageUrl')"></div>
+                    }
+
+                    <div class="block-body">
+                        <h3>@loc.Name</h3>
+                        <div class="info-row"><strong>Dagen en tijden:</strong> @loc.DaysTimes</div>
+                        <div class="info-row"><strong>Locatie:</strong> @loc.Address</div>
+                        <p>@loc.Description</p>
+                    </div>
+                </article>
+            }
+        </div>
+
+    </section>
+
 </div>
 
 @code {
