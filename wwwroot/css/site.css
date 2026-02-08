@@ -625,3 +625,9 @@ label {
 .block-body {
     padding: 16px;
 }
+
+.wa-img {
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+}

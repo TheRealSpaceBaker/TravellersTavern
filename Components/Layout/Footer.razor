@@ -9,8 +9,17 @@
 
     <section>
         <h4>Contact</h4>
-        <div>Tel: @Content.Footer.Phone</div>
-        <div>E-mail: <a href="mailto:@Content.Footer.Email">@Content.Footer.Email</a></div>
+
+        <div class="footer-row">
+            <img class="wa-img" src="/img/icons/whatsapp.png" alt="WhatsApp" />
+            <span>Tel: @Content.Footer.Phone</span>
+        </div>
+
+        <div>
+            E-mail:
+            <a href="mailto:@Content.Footer.Email">@Content.Footer.Email</a>
+        </div>
+
         <div>Adres: @Content.Footer.Address</div>
     </section>
 
@@ -19,7 +28,9 @@
         <ul class="footer-socials">
             @foreach (var s in Content.Footer.Socials)
             {
-                <li><a href="@s.Url" target="_blank" rel="noopener noreferrer">@s.Name</a></li>
+                <li>
+                    <a href="@s.Url" target="_blank" rel="noopener noreferrer">@s.Name</a>
+                </li>
             }
         </ul>
     </section>
