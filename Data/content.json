@@ -85,14 +85,14 @@
           "daysTimes": "Vrijdag 19:00 tot 23:00",
           "address": "Adres locatie A",
           "description": "Beschrijving van locatie A.",
-          "imageUrl": "/img/placeholders/Placeholder-PublicGames-Block1.png"
+          "imageUrl": "/img/placeholders/Placeholder-PublicGames-Blok1.png"
         },
         {
           "name": "Locatie B",
           "daysTimes": "Zaterdag 13:00 tot 17:00",
           "address": "Adres locatie B",
           "description": "Beschrijving van locatie B.",
-          "imageUrl": "/img/placeholders/Placeholder-PublicGames-Block2.png"
+          "imageUrl": "/img/placeholders/Placeholder-PublicGames-Blok1.png"
         }
       ]
     },
@@ -103,7 +103,7 @@
         {
           "title": "Cursus optie 1",
           "description": "Beschrijving cursus optie 1.",
-          "imageUrl": "/img/placeholders/course.jpg",
+          "imageUrl": "/img/placeholders/course.png",
           "buttonText": "Meer informatie",
           "href": "https://example.com"
         },
@@ -123,7 +123,8 @@
     },
     "about": {
       "title": "Over The Traveller's Tavern",
-      "text": "Placeholder tekst voor de over-pagina."
+      "text": "Placeholder tekst voor de over-pagina.",
+      "portraitImageUrl": "/img/placeholders/Placeholder-About-Portrait.jpg"
     },
     "terms": {
       "title": "Algemene voorwaarden",

@@ -10,13 +10,10 @@
     --text: #f2f2f4;
     --muted: #b9bbc6;
     --border: #2b2b35;
-
     --accent: #825526;
     --accent-2: #a06a32;
-
     --shadow: 0 10px 30px rgba(0,0,0,0.35);
     --radius: 14px;
-
     --maxw: 1100px;
 }
 
@@ -28,7 +25,7 @@ html, body {
 body {
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    background: var(--bg);
+    background: transparent;
     color: var(--text);
 }
 
@@ -38,9 +35,9 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    color: var(--text);
-}
+    a:hover {
+        color: var(--text);
+    }
 
 /* =========================================
    Layout: sticky footer
@@ -92,7 +89,6 @@ a:hover {
     max-width: var(--maxw);
     margin: 0 auto;
     padding: 14px 24px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,77 +125,72 @@ a:hover {
     cursor: pointer;
 }
 
-/* Nav links */
-.nav-link,
-.nav-list a.nav-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    /* Nav links */
+    .nav-link,
+    .nav-list a.nav-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 10px;
+        border-radius: 10px;
+        color: var(--muted);
+        transition: background 120ms ease, color 120ms ease;
+    }
 
-    padding: 10px 10px;
-    border-radius: 10px;
-
-    color: var(--muted);
-    transition: background 120ms ease, color 120ms ease;
-}
-
-.nav-link:hover,
-.nav-list a.nav-link:hover {
-    background: rgba(130,85,38,0.16);
-    color: var(--text);
-}
+        .nav-link:hover,
+        .nav-list a.nav-link:hover {
+            background: rgba(130,85,38,0.16);
+            color: var(--text);
+        }
 
 /* =========================================
    Dropdown (details/summary based)
-   Requires NavMenu uses <details class="dropdown"><summary>...</summary>...
    ========================================= */
 
 .dropdown {
     position: relative;
 }
 
-.dropdown > summary {
-    list-style: none;
-    cursor: pointer;
-    user-select: none;
-    outline: none;
-}
+    .dropdown > summary {
+        list-style: none;
+        cursor: pointer;
+        user-select: none;
+        outline: none;
+    }
 
-/* Remove default marker for WebKit */
-.dropdown > summary::-webkit-details-marker {
-    display: none;
-}
+        /* Remove default marker for WebKit */
+        .dropdown > summary::-webkit-details-marker {
+            display: none;
+        }
 
-/* Add a subtle caret */
-.dropdown > summary::after {
-    content: "▾";
-    font-size: 0.9em;
-    color: var(--muted);
-    margin-left: 6px;
-}
+        /* Add a subtle caret */
+        .dropdown > summary::after {
+            content: "▾";
+            font-size: 0.9em;
+            color: var(--muted);
+            margin-left: 6px;
+        }
 
-/* Make summary look like other nav links */
-.dropdown > summary.nav-link,
-.dropdown > summary {
-    display: inline-flex;
-    align-items: center;
+        /* Make summary look like other nav links */
+        .dropdown > summary.nav-link,
+        .dropdown > summary {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 10px;
+            border-radius: 10px;
+            color: var(--muted);
+            transition: background 120ms ease, color 120ms ease;
+        }
 
-    padding: 10px 10px;
-    border-radius: 10px;
+            .dropdown > summary:hover {
+                background: rgba(130,85,38,0.16);
+                color: var(--text);
+            }
 
-    color: var(--muted);
-    transition: background 120ms ease, color 120ms ease;
-}
-
-.dropdown > summary:hover {
-    background: rgba(130,85,38,0.16);
-    color: var(--text);
-}
-
-.dropdown[open] > summary {
-    background: rgba(130,85,38,0.22);
-    color: var(--text);
-}
+    .dropdown[open] > summary {
+        background: rgba(130,85,38,0.22);
+        color: var(--text);
+    }
 
 /* Menu box */
 .dropdown-menu {
@@ -207,18 +198,14 @@ a:hover {
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
-
     min-width: 190px;
-
     margin: 0;
     padding: 8px;
     list-style: none;
-
     background: var(--surface-2);
     border: 1px solid var(--border);
     border-radius: 12px;
     box-shadow: var(--shadow);
-
     z-index: 99999;
 }
 
@@ -231,16 +218,14 @@ a:hover {
     display: block;
     padding: 10px 10px;
     border-radius: 10px;
-
     color: var(--text);
     cursor: pointer;
-
     transition: background 120ms ease;
 }
 
-.dropdown-link:hover {
-    background: rgba(130,85,38,0.18);
-}
+    .dropdown-link:hover {
+        background: rgba(130,85,38,0.18);
+    }
 
 /* =========================================
    Typography
@@ -277,26 +262,24 @@ p {
     background: var(--surface);
     padding: 16px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.22);
-
     text-align: left;
     cursor: pointer;
-
     transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
 }
 
-.card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(130,85,38,0.55);
-    background: #14141a;
-}
+    .card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(130,85,38,0.55);
+        background: #14141a;
+    }
 
-.card h3 {
-    color: var(--text);
-}
+    .card h3 {
+        color: var(--text);
+    }
 
-.card p {
-    margin: 0;
-}
+    .card p {
+        margin: 0;
+    }
 
 /* If cards are buttons, keep them looking like cards */
 button.card {
@@ -328,9 +311,9 @@ button.card {
     color: var(--muted);
 }
 
-.info-row strong {
-    color: var(--text);
-}
+    .info-row strong {
+        color: var(--text);
+    }
 
 /* Note box (calendar placeholder) */
 .note {
@@ -365,10 +348,10 @@ label {
     outline: none;
 }
 
-.input:focus {
-    border-color: rgba(130,85,38,0.8);
-    box-shadow: 0 0 0 3px rgba(130,85,38,0.18);
-}
+    .input:focus {
+        border-color: rgba(130,85,38,0.8);
+        box-shadow: 0 0 0 3px rgba(130,85,38,0.18);
+    }
 
 .btn {
     padding: 10px 14px;
@@ -377,19 +360,18 @@ label {
     background: rgba(130,85,38,0.22);
     color: var(--text);
     cursor: pointer;
-
     transition: background 120ms ease, transform 120ms ease;
 }
 
-.btn:hover {
-    background: rgba(130,85,38,0.32);
-    transform: translateY(-1px);
-}
+    .btn:hover {
+        background: rgba(130,85,38,0.32);
+        transform: translateY(-1px);
+    }
 
-.btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
+    .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
 
 /* Alerts */
 .alert {
@@ -421,21 +403,20 @@ label {
 .footer-grid {
     max-width: var(--maxw);
     margin: 0 auto;
-
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
 }
 
-.footer-grid h4 {
-    margin: 0 0 10px 0;
-    color: var(--text);
-}
+    .footer-grid h4 {
+        margin: 0 0 10px 0;
+        color: var(--text);
+    }
 
-.footer-grid div,
-.footer-grid li {
-    color: var(--muted);
-}
+    .footer-grid div,
+    .footer-grid li {
+        color: var(--muted);
+    }
 
 .footer-socials {
     list-style: none;
@@ -443,14 +424,14 @@ label {
     margin: 0;
 }
 
-.footer-socials a {
-    color: var(--muted);
-    cursor: pointer;
-}
+    .footer-socials a {
+        color: var(--muted);
+        cursor: pointer;
+    }
 
-.footer-socials a:hover {
-    color: var(--text);
-}
+        .footer-socials a:hover {
+            color: var(--text);
+        }
 
 /* =========================================
    Responsive
@@ -474,7 +455,11 @@ label {
         flex-wrap: wrap;
     }
 }
-/* Home hero background (uses image, overlay uses allowed palette color) */
+
+/* =========================================
+   Home
+   ========================================= */
+
 .home-hero {
     background-size: cover;
     background-position: center;
@@ -482,7 +467,6 @@ label {
     padding: 34px 0;
 }
 
-/* Inner block with readable background */
 .home-hero-inner {
     max-width: var(--maxw);
     margin: 0 auto;
@@ -492,25 +476,6 @@ label {
     border-radius: var(--radius);
 }
 
-/* Card with optional image */
-.card--media {
-    padding: 0;
-    overflow: hidden;
-    display: block;
-}
-
-.card-media {
-    height: 120px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-bottom: 1px solid var(--border);
-}
-
-.card-body {
-    padding: 16px;
-}
-/* Home layout: photo block above intro block */
 .home-wrap {
     max-width: var(--maxw);
     margin: 0 auto;
@@ -518,7 +483,6 @@ label {
     gap: 18px;
 }
 
-/* Photo block */
 .home-photo {
     border-radius: var(--radius);
     overflow: hidden;
@@ -528,12 +492,11 @@ label {
 
 .home-photo-img {
     width: 100%;
-    height: 240px; /* pas aan als je hoger wilt */
+    height: 240px;
     object-fit: cover;
     display: block;
 }
 
-/* Intro block */
 .home-intro {
     border-radius: var(--radius);
     border: 1px solid var(--border);
@@ -541,7 +504,10 @@ label {
     padding: 22px;
 }
 
-/* Card media layout (als je die nog niet had) */
+/* =========================================
+   Cards with media
+   ========================================= */
+
 .card--media {
     padding: 0;
     overflow: hidden;
@@ -560,7 +526,10 @@ label {
     padding: 16px;
 }
 
-/* Public pages layout container */
+/* =========================================
+   Page layout (public games, courses etc.)
+   ========================================= */
+
 .page-wrap {
     max-width: var(--maxw);
     margin: 0 auto;
@@ -568,7 +537,6 @@ label {
     gap: 18px;
 }
 
-/* Hero image block */
 .page-hero {
     border-radius: var(--radius);
     overflow: hidden;
@@ -583,7 +551,6 @@ label {
     display: block;
 }
 
-/* Card-like container for title + blocks */
 .page-card {
     border-radius: var(--radius);
     border: 1px solid var(--border);
@@ -591,7 +558,6 @@ label {
     padding: 22px;
 }
 
-/* Block media layout */
 .info-block--media {
     padding: 0;
     overflow: hidden;
@@ -608,26 +574,54 @@ label {
 .block-body {
     padding: 16px;
 }
-/* PublicGames blocks with image on top */
-.info-block--media {
-    padding: 0; /* omdat we een image header hebben */
-    overflow: hidden;
-}
 
-.block-media {
-    height: 110px; /* pas aan naar smaak */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-bottom: 1px solid var(--border);
-}
-
-.block-body {
-    padding: 16px;
-}
+/* =========================================
+   Misc
+   ========================================= */
 
 .wa-img {
     width: 17px;
     height: 17px;
     display: inline-block;
+}
+
+/* =========================================
+   About portrait
+   ========================================= */
+
+.about-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    justify-content: center;
+}
+
+.about-portrait {
+    width: 220px;
+    height: 280px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    flex-shrink: 0;
+}
+
+.about-card {
+    width: 500px;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   Pagina achtergrond afbeelding
+   Gebruik: voeg 'page-bg' toe aan <div class="site">
+   ========================================= */
+
+.page-bg {
+    background-image: url('/img/jouw-achtergrond.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
 }

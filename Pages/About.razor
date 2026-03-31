@@ -1,13 +1,21 @@
 ﻿@page "/about"
 @inject TravellersTavern.Services.IContentService Content
-@inject TravellersTavern.ViewModels.SimpleTextPageViewModel Vm
 
-<h1>@Vm.Title</h1>
-<p>@Vm.Text</p>
-
-@code {
-    protected override void OnInitialized()
-    {
-        Vm.Set(Content.About.Title, Content.About.Text);
-    }
+@{
+    var about = Content.About;
 }
+
+<div class="about-layout">
+    <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 24px;">
+        @if (!string.IsNullOrEmpty(about.PortraitImageUrl))
+        {
+            <img src="@about.PortraitImageUrl"
+                 alt="Portretfoto"
+                 style="width: 220px; height: 280px; object-fit: cover; object-position: top; border-radius: 14px; border: 1px solid #2b2b35; flex-shrink: 0;" />
+        }
+        <div class="page-card" style="flex: 1;">
+            <h1>@about.Title</h1>
+            <p>@about.Text</p>
+        </div>
+    </div>
+</div>
