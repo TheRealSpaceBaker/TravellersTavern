@@ -123,7 +123,8 @@
     },
     "about": {
       "title": "Over The Traveller's Tavern",
-      "text": "Placeholder tekst voor de over-pagina."
+      "text": "Placeholder tekst voor de over-pagina.",
+      "portraitImageUrl": "/img/placeholders/Placeholder-About-Portrait.jpg"
     },
     "terms": {
       "title": "Algemene voorwaarden",

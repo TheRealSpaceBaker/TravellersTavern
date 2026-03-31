@@ -17,7 +17,6 @@ public class ContentService : IContentService
         {
             PropertyNameCaseInsensitive = true
         }) ?? new ContentRoot();
-
     }
 
     public string OrganizationName => _root.OrganizationName;
@@ -28,7 +27,7 @@ public class ContentService : IContentService
     public PublicGamesContent PublicGames => _root.Pages.PublicGames;
     public CoursesContent Courses => _root.Pages.Courses;
     public PrivateSessionContent PrivateSession => _root.Pages.PrivateSession;
-    public SimpleTextContent About => _root.Pages.About;
+    public AboutContent About => _root.Pages.About;  // <-- gewijzigd
     public SimpleTextContent Terms => _root.Pages.Terms;
 
     private class ContentRoot
@@ -45,7 +44,7 @@ public class ContentService : IContentService
         public PublicGamesContent PublicGames { get; set; } = new();
         public CoursesContent Courses { get; set; } = new();
         public PrivateSessionContent PrivateSession { get; set; } = new();
-        public SimpleTextContent About { get; set; } = new();
+        public AboutContent About { get; set; } = new();  // <-- gewijzigd
         public SimpleTextContent Terms { get; set; } = new();
     }
 }

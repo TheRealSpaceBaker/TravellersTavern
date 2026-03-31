@@ -13,7 +13,6 @@ public interface IContentService
     PublicGamesContent PublicGames { get; }
     CoursesContent Courses { get; }
     PrivateSessionContent PrivateSession { get; }
-    SimpleTextContent About { get; }
+    AboutContent About { get; }
     SimpleTextContent Terms { get; }
-
 }
