@@ -10,6 +10,12 @@
         <article class="info-block">
             <h3>@opt.Title</h3>
             <p>@opt.Description</p>
+            @if (!string.IsNullOrEmpty(opt.Href))
+            {
+                <a href="@opt.Href" target="_blank" rel="noopener noreferrer">
+                    <button class="btn">@opt.ButtonText</button>
+                </a>
+            }
         </article>
     }
 </div>

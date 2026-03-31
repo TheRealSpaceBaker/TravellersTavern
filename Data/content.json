@@ -96,8 +96,6 @@
         }
       ]
     },
-
-
     "courses": {
       "title": "Leer (spellen-)leider worden!",
       "introText": "Hier vind je informatie over lessen en cursusopties.",
@@ -105,12 +103,16 @@
         {
           "title": "Cursus optie 1",
           "description": "Beschrijving cursus optie 1.",
-          "imageUrl": "/img/placeholders/course.jpg"
+          "imageUrl": "/img/placeholders/course.jpg",
+          "buttonText": "Meer informatie",
+          "href": "https://example.com"
         },
         {
           "title": "Cursus optie 2",
           "description": "Beschrijving cursus optie 2.",
-          "imageUrl": "/img/placeholders/course.jpg"
+          "imageUrl": "/img/placeholders/course.jpg",
+          "buttonText": "Meer informatie",
+          "href": "https://example.com"
         }
       ],
       "calendarNote": "Agenda komt later: hier komt een inschrijf en blokkade mechanisme."
